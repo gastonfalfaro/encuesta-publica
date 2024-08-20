@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .survey-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            background-color: #6c4f3d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #8c6b54;
+        }
+        #response, #totals {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="survey-container">
+    <h2>¿Gustas de mi Agustina?</h2>
+    <button onclick="submitAnswer('Sí')">Sí</button>
+    <button onclick="submitAnswer('No')">No</button>
+    <div id="response"></div>
+    <div id="totals"></div>
+</div>
+
+<script>
+    let siCount = 0;
+    let noCount = 0;
+
+    function submitAnswer(answer) {
+        if (answer === 'Sí') {
+            siCount++;
+        } else if (answer === 'No') {
+            noCount++;
+        }
+        document.getElementById('response').innerText = 'Has respondido: ' + answer;
+        updateTotals();
+    }
+
+    function updateTotals() {
+        document.getElementById('totals').innerText = `Total de respuestas - Sí: ${siCount}, No: ${noCount}`;
+    }
+</script>
+
+</body>
+</html>
